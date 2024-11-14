@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2 class="text-center mb-3">Listado de personas</h2> 
+<a class="btn btn-primary mb-3" href="/Home">Nueva persona</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Acciones</th> <!-- Columna para los botones -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var persona in Model.PersonasList)
+        {
+            <tr>
+                <td>@persona.idPersona</td>
+                <td>@persona.nombre</td>
+                <td>@persona.apellido</td>
+                <td>@persona.correo</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" href="#">EDITAR</a>
+                    <a class="btn btn-danger btn-sm" href="#">BORRAR</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2 class="text-center mb-3">Listado de mascotas</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Color</th>
+            <th>Acciones</th> <!-- Columna para los botones -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var mascota in Model.MascotasList)
+        {
+            <tr>
+                <td>@mascota.idMascota</td>
+                <td>@mascota.nombre</td>
+                <td>@mascota.especie</td>
+                <td>@mascota.color</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" href="#">EDITAR</a>
+                    <a class="btn btn-danger btn-sm" href="#">BORRAR</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
